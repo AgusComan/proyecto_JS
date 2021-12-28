@@ -1,22 +1,88 @@
-alert(`Hola! A continuacion le vamos a pedir que ingrese dos numeros para realizar operaciones matematicas.`);
+/*---PRACTICANDO CONDICIONALES---*/
 
-//Mediante un promt y su correspondiente parseo se le asigna una variable para que el contenido quede guardado en ella
-let primerNumero = parseFloat(prompt(`Ingrese un numero: `));
-let segundoNumero = parseFloat(prompt(`Ingrese otro numero: `));
+/*1. Solicitar al usuario dos numeros, y una operacion. Utilizando un condicional realizar la operacion solicitada 
+por el usuario, y mostrar mediante un alert el resultado. (Verificar que los datos ingresados sean correctos).*/
 
-//Luego se crea la alert y la muestras por consola para mostrar los resultados
-//Dentro de estas se usa los "\t" por estetica
-// Y tambien se uso los Back ticks para poner dentro las operaciones
-alert(`Los resultados son: \t
-       Suma: ${primerNumero + segundoNumero} \t
-       Resta: ${primerNumero - segundoNumero} \t
-       Multiplicacion: ${primerNumero * segundoNumero} \t
-       Division: ${primerNumero / segundoNumero}`
-);
+/*let operacion = prompt(`Hola! Ingrese una operacion matematica para resolver`).toLowerCase();
+let primerNumero = parseFloat(prompt(`Ingrese un numero`));
+let segundoNumero = parseFloat(prompt(`Ingrese otro numero`));
 
-console.log(`Los resultados son: \t
-             Suma: ${primerNumero + segundoNumero} \t
-             Resta: ${primerNumero - segundoNumero} \t
-             Multiplicacion: ${primerNumero * segundoNumero} \t
-             Division: ${primerNumero / segundoNumero}`
-);
+if(operacion == "suma"){
+       console.log(`La ${operacion} es: ${primerNumero + segundoNumero}`);
+}
+else if(operacion == "resta"){
+       console.log(`La ${operacion} es: ${primerNumero - segundoNumero}`);
+}
+else if(operacion == "multiplicacion"){
+       console.log(`La ${operacion} es: ${primerNumero * segundoNumero}`);
+}
+else if(operacion == "division"){
+       console.log(`La ${operacion} es: ${primerNumero / segundoNumero}`);
+}
+else if(operacion == "potencia"){
+       console.log(`La ${operacion} es: ${primerNumero ** segundoNumero}`);
+}
+else if(operacion == "resto"){
+       console.log(`La ${operacion} es: ${primerNumero % segundoNumero}`);
+}
+else{
+       console.log("La operacion no es posible");
+}*/
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+//2. Solicitar al usuario el año de nacimiento y calcular la edad. Mostrar mediante alert si la persona es mayor o menor de edad.
+
+/*let añoNacimiento = Number(prompt("Hola! Ingrese su año de nacimiento:"));
+let edad = 2021 - añoNacimiento;
+
+if(edad >= 18){
+       alert(`Usted tiene ${edad} años, es mayor de edad.`);
+}
+else{
+       alert(`Usted tiene ${edad} años, es menor de edad.`);
+}*/
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+//3. Solicitar al usuario un numero cualquiera, y verificar si es par o impar.
+
+/*let numero = Number(prompt("Hola! Ingresa un numero para ver su paridad"));
+if(numero%2 === 0){
+       console.log(`El numero ${numero} es par.`);
+}
+else{
+       console.log(`El numero ${numero} es impar.`);
+
+}*/
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+/*4. Solicitar al usuario que ingrese dos numeros, determinar cual es el mayor y cual es el menor. En caso de que sean iguales tambien deberá ser informado. 
+Imprimir el resultado por consola y por alert.*/
+
+/*let primerNumero = Number(prompt("Hola, ingrese un numero"));
+let segundoNumero = Number(prompt("Ingrese un segundo numero"));
+
+if(primerNumero > segundoNumero){
+       console.log(`El primer numero ingresado (${primerNumero}) es mayor que el segundo numero ingresado(${segundoNumero})`);
+}
+else if(primerNumero < segundoNumero){
+       console.log(`El segundo numero ingresado (${segundoNumero}) es mayor que el primer numero ingresado(${primerNumero})`);
+}
+else{
+       console.log("Ambos numeros son iguales");
+}*/
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+//5. Solicitar al usuario que ingrese una letra , Indicar si es una vocal o consonante. 
+
+let letra = prompt("Ingrese una letra para saber si es vocal o consonante").toLowerCase();
+
+if(letra == 'a' && letra == "e" && letra == "i" && letra == "o" && letra == "u"){
+       alert("es una VOCAL");
+}
+else{
+       alert("es una CONSONANTE");
+}

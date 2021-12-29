@@ -78,11 +78,59 @@ else{
 
 //5. Solicitar al usuario que ingrese una letra , Indicar si es una vocal o consonante. 
 
-let letra = prompt("Ingrese una letra para saber si es vocal o consonante").toLowerCase();
+/*let letra = prompt("Ingrese una letra para saber si es vocal o consonante").toLowerCase();
 
-if(letra == 'a' && letra == "e" && letra == "i" && letra == "o" && letra == "u"){
-       alert("es una VOCAL");
+switch(letra){
+       case 'a':
+              console.log("Es una vocal");
+       break;
+
+       case 'e':
+              console.log("Es una vocal");
+       break;
+
+       case 'i':
+              console.log("Es una vocal");
+       break;
+
+       case 'o':
+              console.log("Es una vocal");
+       break;
+
+       case 'u':
+              console.log("Es una vocal");
+       break;
+
+       default:
+              console.log("Es una consonante");
+       break;
+}*/
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+//6. Solicitar al usuario un numero, indicar si el mismo es positivo, negativo o si es cero.
+
+/*let numero =  Number(prompt("Ingresa un numero para ver si es positivo, negativo o cero"));
+
+if(numero >= 1){
+       console.log("Es positivo");
+}
+else if(numero <=-1){
+       console.log("Es negativo");
 }
 else{
-       alert("es una CONSONANTE");
+       console.log("El numero es Cero")
+}*/
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+//7. Solicitar al usuario que ingrese un año, determinar si es bisiesto o no.
+
+/*let año = Number(prompt("Hola! ingrese un año para saber si es bisiesto o no"));
+
+if(año%4 === 0){
+       console.log(`El año ${año} SI es bisiesto`);
 }
+else{
+       console.log(`El año ${año} NO es bisiesto`);
+}*/

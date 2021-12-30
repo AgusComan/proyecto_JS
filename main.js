@@ -78,33 +78,70 @@ else{
 
 //5. Solicitar al usuario que ingrese una letra , Indicar si es una vocal o consonante. 
 
-/*let letra = prompt("Ingrese una letra para saber si es vocal o consonante").toLowerCase();
+/*let datoIngresado = prompt("Ingrese una letra para saber si es vocal o consonante").toLowerCase();
 
-switch(letra){
-       case 'a':
-              console.log("Es una vocal");
-       break;
+if(datoIngresado != ""){
+       if(!isNaN(datoIngresado)){
+              console.log("El dato ingresado es un número");
+       }
+       else{
+              switch(datoIngresado){
+                     case 'a':
+                            console.log("Es una vocal");
+                     break;
+              
+                     case 'e':
+                            console.log("Es una vocal");
+                     break;
+              
+                     case 'i':
+                            console.log("Es una vocal");
+                     break;
+              
+                     case 'o':
+                            console.log("Es una vocal");
+                     break;
+              
+                     case 'u':
+                            console.log("Es una vocal");
+                     break;
 
-       case 'e':
-              console.log("Es una vocal");
-       break;
+                     case 'q':
+                     case 'w':
+                     case 'r':
+                     case 't':
+                     case 'y':
+                     case 'p':
+                     case 's':
+                     case 'd':
+                     case 'f':
+                     case 'g':
+                     case 'h':
+                     case 'j': 
+                     case 'k':
+                     case 'l':
+                     case 'm':
+                     case 'ñ':
+                     case 'z':
+                     case 'x':
+                     case 'c':
+                     case 'v':
+                     case 'b':
+                     case 'n':
+                     case 'm':
+                            console.log("Es una consonante");
+                     break;
 
-       case 'i':
-              console.log("Es una vocal");
-       break;
-
-       case 'o':
-              console.log("Es una vocal");
-       break;
-
-       case 'u':
-              console.log("Es una vocal");
-       break;
-
-       default:
-              console.log("Es una consonante");
-       break;
+                     default:
+                            console.log("Es un simbolo");
+                     break;
+              }
+       }
+}
+else{
+       console.log("No se ha ingresado ningun dato, vuelva a intentarlo");
 }*/
+
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 

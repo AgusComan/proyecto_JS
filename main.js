@@ -1,24 +1,32 @@
-//Registrarse con el nombre para jugar
+//Determinar si un numero es multiplo de otro
 
-let iniciarSesion; //Declaracion de una variable para guardar los datos de entrada
+let primerNumero;
+let segundoNumero;
+let verificacion;
 
-//funcion para entrada de datos
 const Ingreso = () => {
-       iniciarSesion = prompt("Hola! ingrese sesion con su nombre de usuario.");
-       return `${iniciarSesion}`
+       primerNumero = Number(prompt("Ingrese el primer numero para verificar si es multiplo del segundo numero a ingresar."));
+       segundoNumero = Number(prompt("Ingrese el segundo numero"));
 }
 
-//funcion para verificar si se ingreso el nombre de usuario o no se ingreso nada
-const Verificacion = (contenido) => {
-       if(contenido != ""){
-              alert(`Bienvenido ${contenido}! Ingreso exitoso. ¿Listo para jugar?`);
+const VerificarMultiplo = (primero, segundo) => {
+       if((primero % segundo) == 0){
+              verificacion = true;
        }
        else{
-              alert(`Error!! Hubo un problema al iniciar sesion.`);
-              console.error(`Error!! Hubo un problema al iniciar sesion.`);
+              verificacion = false;
        }
 }
 
-//Declaraciones de las funciones a usar
+const Resultado = (ver) => {
+       if (ver != false) {
+              alert("Son multiplos");
+       }
+       else{
+              alert("No son multiplos");
+       }
+}
+
 Ingreso();
-Verificacion(iniciarSesion);
+VerificarMultiplo(primerNumero, segundoNumero);
+Resultado(verificacion);

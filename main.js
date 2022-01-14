@@ -1,16 +1,24 @@
-//Calcular edad promedio de personas registradas.
+//Registrarse con el nombre para jugar
 
-let cantidadPersonas = Number(prompt("Hola! ingresa la cantidad de personas para ingresar su edad"));
-let promedio;
-let acumulador = 0;
+let iniciarSesion; //Declaracion de una variable para guardar los datos de entrada
 
-const Edades = (cantidad) => {
-       for(let i=1; i<=cantidad; i++){
-              let ingresoEdades = Number(prompt("ingrese las edades:"));
-              acumulador = acumulador + ingresoEdades;
-              promedio = acumulador/i;
-       }
-       return `La edad promedio de las ${cantidadPersonas} personas es de: ${promedio}`;
+//funcion para entrada de datos
+const Ingreso = () => {
+       iniciarSesion = prompt("Hola! ingrese sesion con su nombre de usuario.");
+       return `${iniciarSesion}`
 }
 
-alert(Edades(cantidadPersonas));
+//funcion para verificar si se ingreso el nombre de usuario o no se ingreso nada
+const Verificacion = (contenido) => {
+       if(contenido != ""){
+              alert(`Bienvenido ${contenido}! Ingreso exitoso. ¿Listo para jugar?`);
+       }
+       else{
+              alert(`Error!! Hubo un problema al iniciar sesion.`);
+              console.error(`Error!! Hubo un problema al iniciar sesion.`);
+       }
+}
+
+//Declaraciones de las funciones a usar
+Ingreso();
+Verificacion(iniciarSesion);

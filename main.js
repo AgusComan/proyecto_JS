@@ -1,32 +1,30 @@
-//Determinar si un numero es multiplo de otro
+//declaracion de variables a uutilizar
+let iniciarSesion;
 
-let primerNumero;
-let segundoNumero;
-let verificacion;
-
-const Ingreso = () => {
-       primerNumero = Number(prompt("Ingrese el primer numero para verificar si es multiplo del segundo numero a ingresar."));
-       segundoNumero = Number(prompt("Ingrese el segundo numero"));
+//funcion para entrada de datos
+const ingreso = () => {
+       iniciarSesion = prompt("Hola! ingrese sesion con su nombre de usuario.");
+       return `${iniciarSesion}`
 }
 
-const VerificarMultiplo = (primero, segundo) => {
-       if((primero % segundo) == 0){
-              verificacion = true;
+//creacion de objetos usando el metodo de clases
+class Usuarios {
+       constructor(nombre){
+              this.nombre = nombre;
        }
-       else{
-              verificacion = false;
-       }
-}
 
-const Resultado = (ver) => {
-       if (ver != false) {
-              alert("Son multiplos");
-       }
-       else{
-              alert("No son multiplos");
+       verificacion(ingresoUsuario){
+              if(ingresoUsuario != ""){
+                     alert(`Bienvenido ${this.nombre}! Ingreso exitoso. ¿Listo para jugar?`);
+              }
+              else{
+                     alert(`Error!! Hubo un problema al iniciar sesion.`);
+                     console.error(`Error!! Hubo un problema al iniciar sesion.`);
+              }
        }
 }
 
-Ingreso();
-VerificarMultiplo(primerNumero, segundoNumero);
-Resultado(verificacion);
+
+ingreso();
+const usuario1 = new Usuarios (iniciarSesion);
+usuario1.verificacion();

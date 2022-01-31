@@ -10,9 +10,31 @@
 </head>
 
 <body>
-    <h1><u>Memory Test</u></h1>
+    <h1>Memory Test</h1>
     <h2>Bienvenido al Juego!</h2>
-    
+
+    <div>
+        <label for="nombre">Ingresa tu nombre de usuario:</label>
+        <input required type="text" id=nombreIngreso name="nombre" placeholder="usuario...">
+        <button class="botonUsuario">Ingresar</button>
+    </div>
+
+    <div class="selectorNivel">
+        <label for="modoJuego">Seleccione el nivel de Juego:</label>
+        <select class="modoJuego" name="modoJuego">
+            <option value="default">Seleccione Nivel:</option>
+            <option value="Facil">Facil</option>
+            <option value="Medio">Medio</option>
+            <option value="Dificil">Dificil</option>
+        </select>
+    </div>
+
+    <div>
+        <h3>Para reiniciar el juego haga click en el boto "Restart"</h3>
+        <button class="reset">Restart</button>
+    </div>
+
     <script src="main.js"></script>
+
 </body>
 </html>

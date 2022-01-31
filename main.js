@@ -1,25 +1,7 @@
-//declaracion de variables a uutilizar
-let iniciarSesion;
-let tiempoDeJuego;
-let contador = 0;
-let cont = 0;
-let arrayUsuarios = [];
-
-
-//funcion para registro de usuarios
-const ingreso = () => {
-       iniciarSesion = prompt("Hola! ingrese sesion con su nombre de usuario.");
-       tiempoDeJuego = Number(prompt("Ingrese el tiempo de duracion del juego. Solo ingrese numeros enteros sin su unidad de medida, el valor se lo tomara en MINUTOS"));
-       contador ++;
-}
-
-
 //creacion de objetos usando el metodo de clases para guardar los datos de los usarios registrados
 class Usuarios {
-       constructor(id , nombre , DuracionDelJuego){
-              this.id = id;
+       constructor(nombre){
               this.nombre = nombre;
-              this.DuracionDelJuego = DuracionDelJuego;
        }
 
        //con este metodo se verifica si el usuario ingreso o no el nombre de usuario. Depende la condicion se ejecuta un aviso
@@ -39,48 +21,62 @@ class Usuarios {
        }
 }
 
+//funcion para crear las cajas del juego
+const cardsJuego = (cantidad) =>{
+       //creo seccion para las cards
+       const divCards = document.createElement("div");
 
-//inicio de la "estructura principal"
-//comienza con una aclaracion y una entrada de datos para evaluar condiciones y ciclos
-inicio = prompt("Bienvenido! te voy a pedir que ingreses, para simular, los nombres de usuarios y su tiempo de juego de las personas que quieras para determinar quien sale primero tomando en cuenta la menor duracion. \n Para finalizar los ingresos ingrese 'FIN' \n De lo contrario apretar 'ENTER'").toLowerCase();
+       if(cantidad === 3){
+              divCards.setAttribute("class", "seccionCards");
+       }else if(cantidad === 4){
+              divCards.setAttribute("class", "CuatroSeccionCards");
+       }else{
+              divCards.setAttribute("class", "CincoSeccionCards");
+       }
+       document.body.appendChild(divCards);
 
-//El ciclo de reproduce hasta que el usuario lo finalize
-while(inicio != "fin"){
+       let hasta = cantidad * cantidad;
+       for(let i=0; i < hasta ;i++){
+              const cajas = document.createElement("div");
+              cajas.setAttribute("class", "cajasPropiedades");
+              divCards.appendChild(cajas);
+       }
 
-       //llamada  a la funcion para registro de datos
-       ingreso();
+}
 
+//ESTRUCTURA PRINCIPAL
+let cont = 0;
+let arrayUsuarios = [];
+const inputUsuario = document.querySelector("#nombreIngreso");
+const botonUsuario = document.querySelector(".botonUsuario");
+
+
+//evento iniciar sesion
+botonUsuario.addEventListener("click", () =>{
        //Se crea una instancia para los objetos con sus parametros
-       const usuarioIngresado = new Usuarios (contador , iniciarSesion , tiempoDeJuego);
-       usuarioIngresado.verificacion(iniciarSesion);
+       const usuarioIngresado = new Usuarios (inputUsuario.value);
+       usuarioIngresado.verificacion(inputUsuario.value);
 
        //se cargan los usuarios que se ingresen a un array vacio
        arrayUsuarios.push(usuarioIngresado);
+       inputUsuario.value = "";
+})
 
-       //vuelve a pedir una entrada de datos para continuar o no el ciclo
-       inicio = prompt("Bienvenido! te voy a pedir que ingreses, para simular, los nombres de usuarios y su tiempo de juego de las personas que quieras para determinar quien sale primero tomando en cuenta la menor duracion. \n Para finalizar los ingresos ingrese 'FIN' \n De lo contrario apretar 'ENTER'").toLowerCase();
-}
-
-
-//con el metodo .sort() se compara entre la duracion de juego de cada usuario asi ordenandolo de menor a mayor por medio de una resta y devolviendo un numero.
-//este numero puede ser positivo, negativo o cero.
-arrayUsuarios.sort(function(a, b){return a.DuracionDelJuego - b.DuracionDelJuego});
-
-
-//DOM
-let H2 = document.createElement("H2");
-H2.innerHTML = `El ranking quedo de la siguiente manera:`;
-document.body.appendChild(H2);
-
-//se utiliza el for of para que recorra el array ya ordenado y muestre los resultados
-for(const ranking of arrayUsuarios){
-
-       //con un contador demuestran en que posición quedo cada jugador
-       cont ++;
-       let article = document.createElement("article");
-       article.innerHTML = `<H3>En ${cont}° Lugar ${ranking.nombre} con un tiempo de ${ranking.DuracionDelJuego} minutos.</H3>`
-       document.body.appendChild(article);
-}
+//evento para elegir la dificultad
+const dificultad = document.querySelector(".modoJuego");
+dificultad.addEventListener("change", (evt)=>{
+       if(dificultad.value == "Facil"){
+              cardsJuego(3);
+       }else if(dificultad.value == "Medio"){
+              cardsJuego(4);
+       }else if(dificultad.value == "Dificil"){
+              cardsJuego(5);
+       }
+})
 
 
-document.getElementsByTagName("body")[0].setAttribute("class", "cambioBack");
+//evento para reinicar el game
+const recargarPagina = document.querySelector(".reset");
+recargarPagina.addEventListener("click", ()=>{
+       window.location.reload();
+})

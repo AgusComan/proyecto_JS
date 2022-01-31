@@ -19,6 +19,7 @@ class Usuarios {
                      document.body.appendChild(div);
               }
        }
+
 }
 
 //funcion para crear las cajas del juego
@@ -57,10 +58,22 @@ botonUsuario.addEventListener("click", () =>{
        const usuarioIngresado = new Usuarios (inputUsuario.value);
        usuarioIngresado.verificacion(inputUsuario.value);
 
-       //se cargan los usuarios que se ingresen a un array vacio
-       arrayUsuarios.push(usuarioIngresado);
+       //localStorage
+       const enJOSN = JSON.stringify(usuarioIngresado);
+       localStorage.setItem("nombre1", enJOSN);
+
        inputUsuario.value = "";
 })
+
+//vuelvo a traer los datos del storage y lo guardo
+let loTraigoDeVuelta = localStorage.getItem("nombre1");
+
+let usuario = JSON.parse(loTraigoDeVuelta);
+
+arrayUsuarios.push(usuario);
+
+
+
 
 //evento para elegir la dificultad
 const dificultad = document.querySelector(".modoJuego");
@@ -80,3 +93,18 @@ const recargarPagina = document.querySelector(".reset");
 recargarPagina.addEventListener("click", ()=>{
        window.location.reload();
 })
+
+
+//DOM
+let H2 = document.createElement("H2");
+H2.innerHTML = `Los usuarios registrados son:`;
+document.body.appendChild(H2);
+
+
+
+//se utiliza el for of para que recorra el array ya ordenado y muestre los resultados
+for(const ranking of arrayUsuarios){
+       let article = document.createElement("article");
+       article.innerHTML = `<H3> ${ranking.nombre} </H3>`
+       document.body.appendChild(article);
+}

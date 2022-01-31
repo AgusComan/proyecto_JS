@@ -38,3 +38,7 @@ body{
     height: 200px;
     background-color: azure;
 }
+
+.cajasPropiedades:hover{
+    background-color: rgb(216, 230, 230);
+}

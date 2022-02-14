@@ -58,21 +58,14 @@ botonUsuario.addEventListener("click", () =>{
        const usuarioIngresado = new Usuarios (inputUsuario.value);
        usuarioIngresado.verificacion(inputUsuario.value);
 
+       //se guarda los usuarios ingresados en un array
+       arrayUsuarios.push(usuarioIngresado);
+
        //localStorage
-       const enJOSN = JSON.stringify(usuarioIngresado);
-       localStorage.setItem("nombre1", enJOSN);
+       localStorage.setItem('nombreUsuarios', JSON.stringify(arrayUsuarios));
 
        inputUsuario.value = "";
 })
-
-//vuelvo a traer los datos del storage y lo guardo
-let loTraigoDeVuelta = localStorage.getItem("nombre1");
-
-let usuario = JSON.parse(loTraigoDeVuelta);
-
-arrayUsuarios.push(usuario);
-
-
 
 
 //evento para elegir la dificultad
@@ -95,16 +88,22 @@ recargarPagina.addEventListener("click", ()=>{
 })
 
 
-//DOM
-let H2 = document.createElement("H2");
-H2.innerHTML = `Los usuarios registrados son:`;
-document.body.appendChild(H2);
+//evento para mostrar el historial de jugadores
+const mostrarUsuarios = document.querySelector(".mostrarUser");
+mostrarUsuarios.addEventListener("click", ()=>{
+       //DOM
+       let H2 = document.createElement("H2");
+       H2.innerHTML = `Los usuarios registrados son:`;
+       document.body.appendChild(H2);
+
+       //Se cargan el array con los datos del localStorage
+       let dataLocal = JSON.parse(localStorage.getItem("nombreUsuarios"));
 
 
-
-//se utiliza el for of para que recorra el array ya ordenado y muestre los resultados
-for(const ranking of arrayUsuarios){
-       let article = document.createElement("article");
-       article.innerHTML = `<H3> ${ranking.nombre} </H3>`
-       document.body.appendChild(article);
-}
+       //se utiliza el for of para que recorra el array ya ordenado y muestre los resultados
+       for(const mostrar of dataLocal){
+              let article = document.createElement("article");
+              article.innerHTML = `<H3> ${mostrar.nombre} </H3>`
+              document.body.appendChild(article);
+       }
+})
